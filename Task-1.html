@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #calculate{
+           height: 500px;
+           width: 300px;
+           margin: 0 auto;
+           margin-top: 50px;
+           border: 1px solid;
+           border-radius: 30px;
+           background-color: black;
+        }
+        #display{
+            height: 100px;
+            width: 300px;
+            border: none;
+            outline: none;
+            margin-top: 30px;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size:xx-large ;
+            background-color:black;
+            color:white;
+            text-align: right;
+            font-size: 40px;
+        }
+        
+        .row{
+            display: flex;
+            justify-content: space-between;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            font-size: 25px;
+            background-color:rgb(48, 30, 45);
+            color: white;
+            margin: 10px;
+
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        .operator{
+            background-color:goldenrod;
+            color:white;
+            font-size: 25px;
+            
+        }
+        #but{
+            width: 130px;
+            border-radius: 30px;
+        }
+        .op{
+            background-color:rgb(218, 210, 210);
+            color:grey ;
+        }
+        p{
+            font-size: 25px;  
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculate">
+        <input type="text" id="display">
+        <div id="keys">
+            <div class="row">
+                <button onclick="clr()"  class="op">C</button>
+                <button onclick="del()"  class="op">del</button>
+                <button onclick="calculator('%')" class="op">%</button>
+                <button onclick="calculator('/')" value="/" class="operator">/</button>
+            </div>
+            <div class="row">
+                <button onclick="calculator(7)" >7</button>
+                <button onclick="calculator(8)" >8</button>
+                <button onclick="calculator(9)" >9</button>
+                <button onclick="calculator('*')" class="operator"><p>*</p></button>
+            </div>
+            <div class="row">
+                <button onclick="calculator(4)" >4</button>
+                <button onclick="calculator(5)">5</button>
+                <button onclick="calculator(6)">6</button>
+                <button onclick="calculator('-')" class="operator">-</button>
+            </div>
+            <div class="row">
+                <button onclick="calculator(1)" >1</button>
+                <button onclick="calculator(2)" >2</button>
+                <button onclick="calculator(3)" >3</button>
+                <button onclick="calculator('+')"  class="operator">+</button>
+            </div>
+            <div class="row">
+                <button onclick="calculator(0)" id="but">0</button>
+                <button  onclick="calculator()" >.</button>
+                <button onclick="Result()" class="operator">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+         var result=document.getElementById("display")
+         var calculator=(number)=>{
+            result.value+=number;
+         }
+        function Result() {
+            try{
+                result.value=eval(result.value)
+            }
+            catch(err){
+                alert("Enter the valid input")
+            }
+        }
+        function clr() {
+            result.value="";
+        }
+        function del() {
+            result.value=result.value.slice(0,-1)
+        }
+    </script>
+</body>
+</html>
